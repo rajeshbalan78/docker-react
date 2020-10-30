@@ -20,3 +20,15 @@ RUN npm run build
  
 FROM nginx
 COPY --from=0 /app/build /usr/share/nginx/html
+
+TRAVIS FILE
+
+deploy:
+    provider: elasticbeanstalk
+    region: "ap-south-1"
+    app: "docker-react"
+    env: "DockerReact-env"
+    bucket_name: "elasticbeanstalk-ap-south-1-372198002688"
+    bucket_path: "docker-react"
+    on:
+        branch: master

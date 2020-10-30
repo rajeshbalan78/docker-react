@@ -7,3 +7,5 @@ before_install:
 
 script:
     - docker run rajeshbalan/docker-react npm run test -- --coverage
+
+install: travis_wait 30 mvn install
